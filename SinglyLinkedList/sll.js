@@ -25,6 +25,51 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+  traverse() {
+    let current = this.head;
+    while (current) {
+      console.log(current.val);
+      current = current.next;
+    }
+  }
+  pop() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    let newTail = current;
+    while (current.next) {
+      newTail = current;
+      current = current.next;
+    }
+    this.tail = newTail;
+    this.tail.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return current;
+  }
+
+  shift() {
+    if (!this.head) return undefined;
+    let current = this.head;
+    this.head = this.head.next;
+    this.length--;
+    return current;
+  }
+
+  unshift(val) {
+    const newNode = new Node(val);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head = newNode;
+    }
+    this.length++;
+    return this;
+  }
 }
 // var first = new Node("Hi");
 // first.next = new Node("There");
@@ -34,6 +79,12 @@ class SinglyLinkedList {
 
 // console.log(first);
 let list = new SinglyLinkedList();
+list.push("hi,");
+list.push("hello");
+list.push("Brothoer!");
+list.push("Welcome");
+list.push("here");
 console.log(list);
-console.log(list.push("hi"));
-console.log(list.push("hello!"));
+list.shift();
+list.unshift("Yo");
+list.traverse();
