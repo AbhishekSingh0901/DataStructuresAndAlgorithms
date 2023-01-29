@@ -108,7 +108,7 @@ class DoublyLinkedList {
   }
 
   insert(val, index) {
-    if (index < 0 || index > this.length) return false;
+    if (index < 0 || index > this.length) return undefined;
     else if (index === 0) return this.unshift(val);
     else if (index === this.length) return this.push(val);
     else {
@@ -120,6 +120,25 @@ class DoublyLinkedList {
       newNode.next.prev = newNode;
       this.length++;
       return this;
+    }
+  }
+
+  remove(index) {
+    if (index < 0 || index >= this.length) return undefined;
+    else if (index === 0) return this.shift();
+    else if (index === this.length - 1) return this.pop();
+    else {
+      const node = this.get(index);
+      let nextNode = node.next;
+      let prevNode = node.prev;
+
+      nextNode.prev = prevNode;
+      prevNode.next = nextNode;
+      node.next = null;
+      node.prev = null;
+
+      this.length--;
+      return node;
     }
   }
 }
