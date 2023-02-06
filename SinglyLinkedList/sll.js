@@ -13,6 +13,7 @@ class SinglyLinkedList {
     this.tail = null;
     this.length = 0;
   }
+
   push(val) {
     let newNode = new Node(val);
     if (!this.head) {
@@ -25,6 +26,7 @@ class SinglyLinkedList {
     this.length++;
     return this;
   }
+
   traverse() {
     let current = this.head;
     while (current) {
@@ -32,6 +34,7 @@ class SinglyLinkedList {
       current = current.next;
     }
   }
+
   pop() {
     if (!this.head) return undefined;
     let current = this.head;

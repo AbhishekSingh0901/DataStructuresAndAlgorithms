@@ -51,9 +51,10 @@ function sort012(a, arr_size) {
   while (mid <= hi) {
     // If the element is 0
     if (a[mid] == 0) {
-      temp = a[lo];
-      a[lo] = a[mid];
-      a[mid] = temp;
+      // temp = a[lo];
+      // a[lo] = a[mid];
+      // a[mid] = temp;
+      [a[lo], a[mid]] = [a[mid], a[lo]];
       lo++;
       mid++;
     }

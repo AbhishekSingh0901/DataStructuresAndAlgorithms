@@ -28,7 +28,7 @@ Example 3:
 Input: nums = [1,1,5]
 Output: [1,5,1]
  */
-var nextPermutation = function (nums) {
+const nextPermutation = function (nums) {
   for (let i = nums.length - 1; i >= 0; i--) {
     if (nums[i] < nums[i + 1]) {
       const large = nextLarge(i);
@@ -62,3 +62,22 @@ var nextPermutation = function (nums) {
     }
   }
 };
+
+// const sum = function (n) {
+//   return (n * (n + 1)) / 2;
+// };
+
+// const sum2 = function (n) {
+//   let sum = 0;
+//   for (let i = 0; i <= 100; i++) {
+//     sum += i;
+//   }
+//   return sum;
+// };
+
+console.log(sum2(89));
+console.log(sum(89));
+
+let a = 16;
+let b = 23;
+console.log(a + b);
