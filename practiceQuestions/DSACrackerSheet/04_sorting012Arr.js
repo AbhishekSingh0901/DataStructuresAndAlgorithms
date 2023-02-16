@@ -18,13 +18,12 @@ const sortArr = function (arr, N) {
   let i;
   let a = 0;
   let b = 0;
-  let c = 0;
   for (i = 0; i < N; i++) {
     if (arr[i] === 0) {
       a++;
     } else if (arr[i] === 1) {
       b++;
-    } else c++;
+    }
   }
 
   for (let i = 0; i < N; i++) {
@@ -50,7 +49,7 @@ function sort012(a, arr_size) {
   // are sorted
   while (mid <= hi) {
     // If the element is 0
-    if (a[mid] == 0) {
+    if (a[mid] === 0) {
       // temp = a[lo];
       // a[lo] = a[mid];
       // a[mid] = temp;
@@ -59,14 +58,15 @@ function sort012(a, arr_size) {
       mid++;
     }
     // If the element is 1
-    else if (a[mid] == 1) {
+    else if (a[mid] === 1) {
       mid++;
     }
     // If the element is 2
     else {
-      temp = a[mid];
-      a[mid] = a[hi];
-      a[hi] = temp;
+      // temp = a[mid];
+      // a[mid] = a[hi];
+      // a[hi] = temp;
+      [a[mid], a[hi]] = [a[hi], a[mid]];
       hi--;
     }
   }
