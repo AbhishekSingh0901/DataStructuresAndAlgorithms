@@ -19,6 +19,7 @@ Example 1:
 
 Input: nums = [1,2,3]
 Output: [1,3,2]
+
 Example 2:
 
 Input: nums = [3,2,1]
@@ -29,17 +30,19 @@ Input: nums = [1,1,5]
 Output: [1,5,1]
  */
 const nextPermutation = function (nums) {
-  for (let i = nums.length - 1; i >= 0; i--) {
+  let n = nums.length - 1;
+  for (let i = n - 1; i >= 0; i--) {
     if (nums[i] < nums[i + 1]) {
       const large = nextLarge(i);
       swap(i, large);
       reverse(i + 1);
-      return;
+      return nums;
     }
   }
 
   // If there is no next permutation reverse the arr
   nums.reverse();
+  return nums;
 
   function swap(i, j) {
     [nums[i], nums[j]] = [nums[j], nums[i]];
@@ -47,7 +50,7 @@ const nextPermutation = function (nums) {
 
   function reverse(idx) {
     let start = idx,
-      end = nums.length - 1;
+      end = n;
 
     while (start < end) {
       swap(start, end);
@@ -57,27 +60,11 @@ const nextPermutation = function (nums) {
   }
 
   function nextLarge(idx) {
-    for (let i = nums.length - 1; i > idx; i--) {
+    for (let i = n; i > idx; i--) {
       if (nums[i] > nums[idx]) return i;
     }
   }
 };
 
-// const sum = function (n) {
-//   return (n * (n + 1)) / 2;
-// };
-
-// const sum2 = function (n) {
-//   let sum = 0;
-//   for (let i = 0; i <= 100; i++) {
-//     sum += i;
-//   }
-//   return sum;
-// };
-
-console.log(sum2(89));
-console.log(sum(89));
-
-let a = 16;
-let b = 23;
-console.log(a + b);
+console.log(nextPermutation([1, 2, 3]));
+console.log(nextPermutation([4, 3, 2, 1]));
