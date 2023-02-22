@@ -8,4 +8,4 @@ function naiveSearch(long, short) {
   }
   return count;
 }
-console.log(naiveSearch("Aru is the Best! me loves Aru!", "Aru"));
+console.log(naiveSearch("Ab as ab to ab ab and ab", "ab"));
