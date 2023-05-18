@@ -67,4 +67,4 @@ const nextPermutation = function (nums) {
 };
 
 console.log(nextPermutation([1, 2, 3]));
-console.log(nextPermutation([4, 3, 2, 1]));
+console.log(nextPermutation([4, 3, 2, 1, 0]));
